@@ -1,6 +1,7 @@
 # Eclipse and Java build outputs
 bin/
 .dist/
+target/
 .classpath
 .settings/
 
