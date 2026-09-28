@@ -1,0 +1,16 @@
+# Eclipse and Java build outputs
+bin/
+.dist/
+.classpath
+.settings/
+
+# Local runtime data and generated exports
+mindraw.db
+export.png
+
+# Local source archives
+src.zip
+
+# OS metadata
+.DS_Store
+Thumbs.db
