@@ -36,6 +36,10 @@ Adapter et Singleton. Chaque responsabilité est isolée dans un package dédié
 
 Prérequis : JDK 21 et Maven 3.9.
 
+Une version Windows autonome, avec Java 21 et JavaFX inclus, est disponible
+dans la section [Releases](https://github.com/KhaledZouari/minidrawfx/releases).
+Après extraction de l’archive, lancer `MiniDrawFX.exe`.
+
 ```bash
 git clone https://github.com/KhaledZouari/minidrawfx.git
 cd minidrawfx
@@ -84,7 +88,7 @@ Les futures captures sont regroupées dans `docs/screenshots/`.
 - Les tests couvrent la collection centrale de formes, mais pas encore la
   géométrie ni la sérialisation de chaque type.
 - Ajouter des tests d’intégration pour les repositories JSON et SQLite.
-- Produire un paquet exécutable avec `jpackage`.
+- Automatiser la production des paquets Linux et macOS avec `jpackage`.
 
 ## Licence
 
