@@ -1,5 +1,7 @@
 # MiniDrawFX Professional
 
+[![CI](https://github.com/KhaledZouari/minidrawfx/actions/workflows/ci.yml/badge.svg)](https://github.com/KhaledZouari/minidrawfx/actions/workflows/ci.yml)
+
 Application de dessin vectoriel JavaFX conçue autour de patrons de conception
 et de plusieurs stratégies de persistance.
 
@@ -77,9 +79,10 @@ Les futures captures sont regroupées dans `docs/screenshots/`.
 - Decorator compose les effets graphiques sans multiplier les sous-classes.
 - Repository permet de changer la persistance sans modifier les services.
 
-## Pistes d’amélioration
+## Limites connues et pistes d’amélioration
 
-- Tester la géométrie et la sérialisation de chaque type de forme.
+- Les tests couvrent la collection centrale de formes, mais pas encore la
+  géométrie ni la sérialisation de chaque type.
 - Ajouter des tests d’intégration pour les repositories JSON et SQLite.
 - Produire un paquet exécutable avec `jpackage`.
 
