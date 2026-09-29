@@ -35,8 +35,8 @@ Adapter et Singleton. Chaque responsabilité est isolée dans un package dédié
 Prérequis : JDK 21 et Maven 3.9.
 
 ```bash
-git clone https://github.com/KhaledZouari/MinDrawFX.git
-cd MinDrawFX
+git clone https://github.com/KhaledZouari/minidrawfx.git
+cd minidrawfx
 mvn verify
 mvn javafx:run
 ```
