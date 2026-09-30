@@ -1,5 +1,8 @@
 # MiniDrawFX Professional
 
+[![CI](https://github.com/KhaledZouari/minidrawfx/actions/workflows/ci.yml/badge.svg)](https://github.com/KhaledZouari/minidrawfx/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
+
 A JavaFX vector drawing application designed around established design patterns
 and multiple persistence strategies.
 
