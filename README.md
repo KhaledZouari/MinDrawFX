@@ -1,44 +1,31 @@
 # MiniDrawFX Professional
 
-[![CI](https://github.com/KhaledZouari/minidrawfx/actions/workflows/ci.yml/badge.svg)](https://github.com/KhaledZouari/minidrawfx/actions/workflows/ci.yml)
+A JavaFX vector drawing application designed around established design patterns
+and multiple persistence strategies.
 
-Application de dessin vectoriel JavaFX conçue autour de patrons de conception
-et de plusieurs stratégies de persistance.
+## Features
 
-## Fonctionnalités
-
-- Création de rectangles, cercles et lignes sur un canevas JavaFX.
-- Sélection, suppression, annulation et rétablissement des actions.
-- Décorateurs visuels : bordure épaisse, rouge ou discontinue, ombre et halo.
-- Persistance des formes au format JSON ou dans une base SQLite locale.
-- Export du canevas au format image.
+- Create, select, move, resize, style, and delete vector shapes
+- Undo and redo through the Command pattern
+- Save drawings as JSON, binary files, or SQLite data
+- Export drawings as PNG
+- Keyboard shortcuts and a structured desktop interface
 
 ## Stack
 
-Java 21, JavaFX 21, FXML, CSS, SQLite JDBC, Maven et JUnit 5.
+Java 21, JavaFX 21, FXML, CSS, SQLite JDBC, Maven, and JUnit 5.
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    View[FXML + JavaFX] --> Controller[MainController]
-    Controller --> Commands[Commandes undo/redo]
-    Controller --> Factories[Fabriques de formes]
-    Controller --> Services[Services]
-    Services --> Repositories[Repositories JSON / SQLite]
-    Factories --> Shapes[Formes et décorateurs]
-```
+The codebase applies Factory, Command, Observer, Strategy, Decorator, Adapter,
+and Singleton patterns. Each responsibility lives in a dedicated package.
 
-Le projet applique notamment Factory, Command, Observer, Strategy, Decorator,
-Adapter et Singleton. Chaque responsabilité est isolée dans un package dédié.
+## Run locally
 
-## Installation
+Prerequisites: JDK 21 and Maven 3.9.
 
-Prérequis : JDK 21 et Maven 3.9.
-
-Une version Windows autonome, avec Java 21 et JavaFX inclus, est disponible
-dans la section [Releases](https://github.com/KhaledZouari/minidrawfx/releases).
-Après extraction de l’archive, lancer `MiniDrawFX.exe`.
+A self-contained Windows build is available under
+[Releases](https://github.com/KhaledZouari/minidrawfx/releases).
 
 ```bash
 git clone https://github.com/KhaledZouari/minidrawfx.git
@@ -47,49 +34,28 @@ mvn verify
 mvn javafx:run
 ```
 
-Maven télécharge JavaFX et le pilote SQLite : aucun chemin local vers un SDK
-ou un fichier JAR n’est requis.
+Maven resolves JavaFX and SQLite dependencies; no local SDK path is required.
 
-## Configuration
+## Configuration and persistence
 
-Aucune variable d’environnement n’est nécessaire. La base `mindraw.db` est
-créée localement à l’exécution et reste exclue de Git. Le fichier
-`.env.example` explicite cette absence de configuration externe.
+No environment variables are required. The application creates `mindraw.db`
+locally at runtime, and the database remains excluded from Git.
 
-## Tests et qualité
+## Quality
 
 ```bash
 mvn verify
 ```
 
-Les tests JUnit vérifient la gestion de la collection centrale de formes. La
-CI compile l’application et exécute les tests sur chaque pull request et chaque
-push sur `main`.
+JUnit tests cover the central shape collection. GitHub Actions builds and tests
+the application on pushes and pull requests targeting `main`.
 
-## Persistance
+## Known limitations
 
-`ShapeRepository` définit le contrat commun. `JsonShapeRepository` et
-`SQLiteShapeRepository` fournissent les deux implémentations sélectionnées par
-`RepositoryFactory`.
+- Advanced vector operations are outside the current scope.
+- Additional UI and persistence integration tests would improve coverage.
 
-## Captures d’écran
+## License
 
-Les futures captures sont regroupées dans `docs/screenshots/`.
+Distributed under the MIT License. See [LICENSE](LICENSE).
 
-## Choix techniques
-
-- FXML sépare la structure de l’interface du contrôleur.
-- Command encapsule les opérations nécessaires à l’annulation/rétablissement.
-- Decorator compose les effets graphiques sans multiplier les sous-classes.
-- Repository permet de changer la persistance sans modifier les services.
-
-## Limites connues et pistes d’amélioration
-
-- Les tests couvrent la collection centrale de formes, mais pas encore la
-  géométrie ni la sérialisation de chaque type.
-- Ajouter des tests d’intégration pour les repositories JSON et SQLite.
-- Automatiser la production des paquets Linux et macOS avec `jpackage`.
-
-## Licence
-
-Ce projet est distribué sous licence MIT. Voir [LICENSE](LICENSE).
