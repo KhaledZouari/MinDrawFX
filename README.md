@@ -58,7 +58,34 @@ the application on pushes and pull requests targeting `main`.
 - Advanced vector operations are outside the current scope.
 - Additional UI and persistence integration tests would improve coverage.
 
+## Business context and engineering approach
+
+### Desktop vector editing
+
+The editor supports drawing and styling shapes while preserving the ability to
+undo actions and save documents. It demonstrates how design patterns organize
+mutable desktop state, commands, decorations and persistence choices.
+
+Command objects support undo/redo; factories centralize shape creation;
+decorators add visual effects; persistence strategies separate drawing state
+from storage format.
+
+## Application screenshots
+
+Captured from the running application on 3 October 2026.
+
+### Vector editor
+
+![Vector editor](docs/screenshots/vector-editor.png)
+
+Rectangles, a circle and a line with styling controls and undo/redo actions.
+
+## Evidence and current scope
+
+The screenshot shows the running JavaFX editor with a sample drawing. It
+demonstrates the interface and supported shape styling, not exhaustive
+verification of export and persistence paths.
+
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE).
-
